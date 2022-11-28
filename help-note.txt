@@ -27,6 +27,7 @@ https://fedingo.com/shell-script-to-clear-delete-log-files/
 4. Enable secondary logs to capture root history.
 https://www.youtube.com/watch?v=KeFbubmw8lA
 https://www.linuxfordevices.com/tutorials/remote-syslog-in-linux
+https://www.youtube.com/watch?v=wktGxu44JwA
 
 5. Update missing security package.
 6. Join to Domain.
