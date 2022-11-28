@@ -30,4 +30,9 @@ https://www.linuxfordevices.com/tutorials/remote-syslog-in-linux
 https://www.youtube.com/watch?v=wktGxu44JwA
 
 5. Update missing security package.
+https://www.cyberciti.biz/faq/how-to-update-security-patches-in-linux-using-the-cli/
+https://www.tecmint.com/install-security-updates-in-ubuntu/
+
+
 6. Join to Domain.
+https://rakeshjain-devops.medium.com/how-to-join-a-linux-box-to-an-active-directory-domain-and-control-access-2c5151bad03d
