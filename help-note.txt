@@ -17,8 +17,12 @@ https://linoxide.com/how-to-create-new-partition-filesystem-on-linux/
 
 >> Creating a volume group
 https://www.youtube.com/watch?v=KWv5haDg_ck
+https://tuxfixer.com/how-to-create-lvm-volume-group-and-logical-volume/
+
 
 3. Configure log clear cronjob.
+https://fedingo.com/shell-script-to-clear-delete-log-files/
+
 4. Enable secondary logs to capture root history.
 5. Update missing security package.
 6. Join to Domain.
