@@ -1,0 +1,24 @@
+1. Install ntp package.
+https://www.liquidweb.com/kb/how-to-install-and-configuring-ntp-on-centos-and-ubuntu/
+https://www.2daygeek.com/install-configure-ntp-server-ntp-client-in-linux/
+https://timetoolsltd.com/ntp/how-to-install-and-configure-ntp-on-linux/
+https://www.thegeekstuff.com/2014/06/linux-ntp-server-client/
+https://vitux.com/how-to-install-ntp-server-and-client-on-ubuntu/
+
+2. Identify the unallocated disks, create partition, volume group, Logical volume and mount point.
+>> Identify the unallocated disks
+https://stackoverflow.com/questions/12313384/how-to-view-unallocated-free-space-on-a-hard-disk-through-terminal
+https://unix.stackexchange.com/questions/119261/finding-unallocated-disk-space-partitioning
+https://codepre.com/how-to-find-unallocated-space-on-linux.html
+
+>> Create partition
+https://www.tecmint.com/create-disk-partitions-in-linux/
+https://linoxide.com/how-to-create-new-partition-filesystem-on-linux/
+
+>> Creating a volume group
+https://www.youtube.com/watch?v=KWv5haDg_ck
+
+3. Configure log clear cronjob.
+4. Enable secondary logs to capture root history.
+5. Update missing security package.
+6. Join to Domain.
