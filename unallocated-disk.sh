@@ -1,35 +1,43 @@
-# To see in TB:
+#!/bin/bash
+#####################################################
+# Name: identify-unallocated-disk.sh
+#
+# Usage:
+#   This command will list all the disks connected to the system,
+#   along with their size and partition table.
+#   Un-allocated disks will be listed with a 'none'
+#   label in the partition table.
+#
+#####################################################
 
-parted /dev/sda unit TB print free | grep 'Free Space' | tail -n1 | awk '{print $3}'
+identify-unallocated-disk () {
+  #check for root privileges
+  if [[ $(/usr/bin/id -u) -ne 0 ]]; then
+      echo "This script must be run as root."
+      exit 1
+  fi
 
-# To see in GB:
- parted /dev/sda unit GB print free | grep 'Free Space' | tail -n1 | awk '{print $3}'
+  #list all disks and partitions
+  DISKS=$(lsblk -o NAME,TYPE | grep disk | awk '{print $1}')
 
-# To see in MB:
- parted /dev/sda unit MB print free | grep 'Free Space' | tail -n1 | awk '{print $3}'
+  #scan for unallocated disks
+  UNALLOCATED_DISKS=()
+  for disk in $DISKS; do
+      PARTITIONS=$(parted -s /dev/$disk print | grep 'Partition Table' | awk '{print $3}')
+      if [ "$PARTITIONS" == "unknown" ]; then
+          UNALLOCATED_DISKS+=($disk)
+      fi
+  done
 
-# To see in bytes:
- parted /dev/sda unit B print free | grep 'Free Space' | tail -n1 | awk '{print $3}'
+  #print results
+  if [ ${#UNALLOCATED_DISKS[@]} -eq 0 ]; then
+      echo "No unallocated disks found."
+  else
+      echo "Unallocated disks:"
+      for disk in ${#UNALLOCATED_DISKS[@]}; do
+          echo "- $disk"
+      done
+  fi
+}
 
-# To see in %:
- parted /dev/sda unit '%' print free | grep 'Free Space' | tail -n1 | awk '{print $3}'
-
-# To see in sectors:
- parted /dev/sda unit s print free | grep 'Free Space' | tail -n1 | awk '{print $3}'
-
- # Or
-
- fdisk -l /dev/sdf
-
- # Or
-
- for disk in /dev/sd[a-z]; do
-  parted $disk print free |
-  grep -q "Free Space" && echo "unallocated space on $disk"
-done
-
-# Or
-
-parted /dev/sda
-
-# then inside parted type "print free"
+identify-unallocated-disk
